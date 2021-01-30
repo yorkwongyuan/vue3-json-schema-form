@@ -1,5 +1,6 @@
 import { PropType, DefineComponent } from 'vue'
 import { ErrorSchema } from './validator'
+import { FormatDefinition, CompilationContext } from 'ajv'
 export enum SchemaTypes {
   'STRING' = 'string',
   'NUMBER' = 'number',
@@ -126,4 +127,37 @@ export type UISchema = {
   items?: UISchema | UISchema[]
 } & {
   [key: string]: any
+}
+
+// 自定义format
+export interface CustomFormat {
+  name: string
+  component: CommonWidgetDefine
+  definition: FormatDefinition // FormatDefinition是ajv参数的类型
+}
+
+interface CustomKeywordDefinition {
+  type?: string | Array<string>
+  async?: boolean
+  $data?: boolean
+  errors?: boolean | string
+  metaSchema?: object
+  // schema: false makes validate not to expect schema (ValidateFunction)
+  schema?: boolean
+  statements?: boolean
+  dependencies?: Array<string>
+  modifying?: boolean
+  valid?: boolean
+  // one and only one of the following properties should be present
+  macro?: (
+    schema: any,
+    parentSchema: object,
+    it: CompilationContext,
+  ) => object | boolean
+}
+
+export interface CustomKeyword {
+  name: string
+  definition: CustomKeywordDefinition
+  transformSchema: (originSchema: Schema) => Schema
 }

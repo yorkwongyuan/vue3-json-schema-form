@@ -8,10 +8,11 @@ import {
   shallowRef,
   watchEffect,
   ref,
+  computed,
 } from 'vue'
 import { SchemaKeyIndexRef } from './context'
 import SchemaItem from './SchemaItem'
-import { Schema, UISchema } from './types'
+import { Schema, UISchema, CustomFormat, CommonWidgetDefine } from './types'
 import Ajv, { Options } from 'ajv'
 import {
   validateFormData,
@@ -57,14 +58,15 @@ export default defineComponent({
     uiSchema: {
       type: Object as PropType<UISchema>,
     },
+    customFormats: {
+      // 有可能是数组也有可能是对象
+      type: [Object, Array] as PropType<CustomFormat[] | CustomFormat>,
+    },
   },
   setup(props) {
     const onChange = function(v: any) {
       props.onChange(v)
     }
-    const context: any = reactive({
-      SchemaItem,
-    })
 
     const validatorRef: Ref<Ajv.Ajv> = shallowRef() as any
     const errorSchemaRef: Ref<ErrorSchema> = shallowRef({})
@@ -73,6 +75,15 @@ export default defineComponent({
         ...defaultAjvOptions,
         ...props.ajvOptions,
       })
+      // 如果自定义了format
+      if (props.customFormats) {
+        const customFormats = Array.isArray(props.customFormats)
+          ? props.customFormats
+          : [props.customFormats]
+        customFormats.forEach((format) => {
+          validatorRef.value.addFormat(format.name, format.definition)
+        })
+      }
     })
     const validateResolveRef = ref()
     const validateIndex = ref(0)
@@ -122,6 +133,23 @@ export default defineComponent({
         immediate: true,
       },
     )
+    // format 和组件的映射关系
+    const formatMapRef = computed(() => {
+      // 如果自定义了format
+      if (props.customFormats) {
+        const customFormats = Array.isArray(props.customFormats)
+          ? props.customFormats
+          : [props.customFormats]
+        return customFormats.reduce((result, format) => {
+          result[format.name] = format.component
+          return result
+        }, {} as { [key: string]: CommonWidgetDefine })
+      }
+    })
+    const context: any = {
+      SchemaItem,
+      formatMapRef,
+    }
     provide(SchemaKeyIndexRef, context)
     return () => {
       const { schema, value, uiSchema } = props

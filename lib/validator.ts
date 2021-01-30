@@ -45,6 +45,7 @@ export async function validateFormData(
   i18n[locale](validator.errors)
   console.log(validator.errors, 'validator.errors')
   let errors = transformErrors(validator.errors)
+  console.log(errors, 'errors')
   if (validationError) {
     errors = [
       ...errors,

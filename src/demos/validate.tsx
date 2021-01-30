@@ -16,6 +16,11 @@ export default {
         minLength: 10,
         title: '请输再次入密码',
       },
+      color: {
+        type: 'string',
+        format: 'color',
+        title: '颜色',
+      },
     },
   },
   async customValidate(data: any, proxy: any) {

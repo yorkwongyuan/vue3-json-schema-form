@@ -6,7 +6,7 @@ export default defineComponent({
   props: fieldPropsDefined,
   setup(props) {
     const textWidgetRef = computed(() => {
-      const widgetRef = getWidgets(CommonWidgetNames.TextWidget, props.uiSchema)
+      const widgetRef = getWidgets(CommonWidgetNames.TextWidget, props)
       return widgetRef.value
     })
     const handleChange = (v: string) => {

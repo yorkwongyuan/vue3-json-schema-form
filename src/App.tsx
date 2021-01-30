@@ -6,6 +6,7 @@ import FormSchema from '../lib/index'
 import { Schema, SchemaTypes } from '../lib/types'
 import themeDefault from '../lib/theme-default/index'
 import ThemeProvider from '../lib/ThemeProvider'
+import customFormat from './plugins/customFormat'
 type UISchema = any
 
 const useStyles = createUseStyles({
@@ -179,6 +180,7 @@ export default defineComponent({
             <div class={classes.form}>
               <ThemeProvider theme={themeDefault}>
                 <FormSchema
+                  customFormats={customFormat}
                   uiSchema={demo.uiSchema || {}}
                   contextRef={contextRef}
                   schema={demo.schema}

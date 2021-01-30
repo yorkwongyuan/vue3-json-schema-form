@@ -15,7 +15,7 @@ ajv.addKeyword('test', {
   // }
   macro(schema, data) {
     return {
-      minLength: 1000
+      minLength: 12
     }
   }
 })

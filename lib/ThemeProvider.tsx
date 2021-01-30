@@ -6,15 +6,17 @@ import {
   ComputedRef,
   computed,
   ref,
+  ExtractPropTypes,
 } from 'vue'
 import {
   Theme,
-  UISchema,
   CommonWidgetDefine,
   CommonWidgetNames,
   SelectWidgetNames,
+  fieldPropsDefined,
 } from './types'
 import { isObject } from './utils'
+import { useVJSFCContext } from './context'
 const SYMBOL_KEY = Symbol()
 export default defineComponent({
   name: 'ThemeProvider',
@@ -36,11 +38,21 @@ export default defineComponent({
 // 获取widgets
 export function getWidgets<T extends CommonWidgetNames | SelectWidgetNames>(
   name: T,
-  uiSchema?: UISchema,
+  props?: ExtractPropTypes<typeof fieldPropsDefined>,
 ) {
-  if (uiSchema?.widget && isObject(uiSchema.widget)) {
-    return ref(uiSchema.widget as CommonWidgetDefine)
+  const { formatMapRef } = useVJSFCContext()
+  if (props) {
+    const { uiSchema, schema } = props
+    if (schema.format) {
+      if (formatMapRef.value[schema.format]) {
+        return ref(formatMapRef.value[schema.format])
+      }
+    }
+    if (uiSchema?.widget && isObject(uiSchema.widget)) {
+      return ref(uiSchema.widget as CommonWidgetDefine)
+    }
   }
+
   const context: ComputedRef<Theme> | undefined = inject<ComputedRef<Theme>>(
     SYMBOL_KEY,
   )
