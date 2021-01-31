@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for lib/fileds/StringField.tsx</title>
+    <title>Code coverage report for lib/theme-default/NumberWidget.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -18,34 +18,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">lib/fileds</a> StringField.tsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">lib/theme-default</a> NumberWidget.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/15</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/5</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/15</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
@@ -82,36 +82,21 @@
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -122,42 +107,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { defineComponent, computed } from 'vue'
-import { fieldPropsDefined, CommonWidgetNames } from '../types'
-import { getWidgets } from '../ThemeProvider'
-export default defineComponent({
-  name: 'StringField',
-  props: fieldPropsDefined,
-  setup(props) {
-    const textWidgetRef = computed(() =&gt; {
-      const widgetRef = getWidgets(CommonWidgetNames.TextWidget, props)
-      return widgetRef.value
-    })
-    const handleChange = (<span class="fstat-no" title="function not covered" >v: string) =&gt; </span>{
-<span class="cstat-no" title="statement not covered" >      props.</span>onChange(v)
-    }
-    const widgetOptionsRef = computed(() =&gt; {
-      const { widget, items, properties, ...options } = props.uiSchema
-      return options
-    })
-    return () =&gt; {
-      const { errorSchema, ...rest } = props
-      const TextWidget = textWidgetRef.value
-      return (
-        &lt;div&gt;
-          &lt;TextWidget
-            options={widgetOptionsRef.value}
-            {...rest}
-            onChange={handleChange}
-            errors={errorSchema.__errors || []}
-          &gt;&lt;/TextWidget&gt;
-        &lt;/div&gt;
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { defineComponent } from 'vue'
+import { commonThemeProps, CommonWidgetDefine } from '../types'
+import { withFormItem } from '../theme-default/formItem'
+&nbsp;
+const TextWidget: CommonWidgetDefine = withFormItem(
+  defineComponent({
+    name: 'TextWidget',
+    props: commonThemeProps,
+    setup(props) {
+      const hanldeChange = (v: any) =&gt; {
+        const value = v.target.value
+        v.target.value = props.value
+        props.onChange(value)
+      }
+      return () =&gt; (
+        &lt;input
+          onInput={hanldeChange}
+          value={props.value as any}
+          type="number"
+        /&gt;
       )
-    }
-  },
-})
+    },
+  }),
+)
+&nbsp;
+export default TextWidget
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

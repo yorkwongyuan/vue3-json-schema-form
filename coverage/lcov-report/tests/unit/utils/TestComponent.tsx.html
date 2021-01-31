@@ -3,14 +3,14 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for lib/fileds/StringField.tsx</title>
+    <title>Code coverage report for tests/unit/utils/TestComponent.tsx</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../prettify.css" />
-    <link rel="stylesheet" href="../../base.css" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../sort-arrow-sprite.png);
+            background-image: url(../../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -18,13 +18,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">lib/fileds</a> StringField.tsx</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">tests/unit/utils</a> TestComponent.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/15</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
@@ -36,16 +36,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/5</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/15</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
@@ -90,28 +90,28 @@
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -124,38 +124,53 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { defineComponent, computed } from 'vue'
-import { fieldPropsDefined, CommonWidgetNames } from '../types'
-import { getWidgets } from '../ThemeProvider'
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { defineComponent, PropType } from 'vue'
+import JsonSchema, { Schema } from '../../../lib'
+import ThemeProvider from '../../../lib/ThemeProvider'
+import ThemeDefault from '../../../lib/theme-default'
+&nbsp;
+const ThemeDefaultProvider = defineComponent({
+  name: 'ThemeDefaultProvider',
+  setup(props, { slots }) {
+    return () =&gt; (
+      &lt;ThemeProvider theme={ThemeDefault}&gt;
+        {slots.default &amp;&amp; slots.default()}
+      &lt;/ThemeProvider&gt;
+    )
+  },
+})
+&nbsp;
 export default defineComponent({
-  name: 'StringField',
-  props: fieldPropsDefined,
+  name: 'TestComponent',
+  props: {
+    schema: {
+      type: Object as PropType&lt;Schema&gt;,
+      required: true,
+    },
+    value: {
+      required: true,
+    },
+    onChange: {
+      type: Function as PropType&lt;(v: any) =&gt; void&gt;,
+      required: true,
+    },
+  },
   setup(props) {
-    const textWidgetRef = computed(() =&gt; {
-      const widgetRef = getWidgets(CommonWidgetNames.TextWidget, props)
-      return widgetRef.value
-    })
-    const handleChange = (<span class="fstat-no" title="function not covered" >v: string) =&gt; </span>{
-<span class="cstat-no" title="statement not covered" >      props.</span>onChange(v)
-    }
-    const widgetOptionsRef = computed(() =&gt; {
-      const { widget, items, properties, ...options } = props.uiSchema
-      return options
-    })
-    return () =&gt; {
-      const { errorSchema, ...rest } = props
-      const TextWidget = textWidgetRef.value
-      return (
-        &lt;div&gt;
-          &lt;TextWidget
-            options={widgetOptionsRef.value}
-            {...rest}
-            onChange={handleChange}
-            errors={errorSchema.__errors || []}
-          &gt;&lt;/TextWidget&gt;
-        &lt;/div&gt;
-      )
-    }
+    return () =&gt; (
+      &lt;ThemeDefaultProvider&gt;
+        &lt;JsonSchema {...props}&gt;&lt;/JsonSchema&gt;
+      &lt;/ThemeDefaultProvider&gt;
+    )
   },
 })
 &nbsp;</pre></td></tr></table></pre>
@@ -168,14 +183,14 @@ export default defineComponent({
                 at Sat Jan 30 2021 22:35:46 GMT+0800 (GMT+08:00)
             </div>
         </div>
-        <script src="../../prettify.js"></script>
+        <script src="../../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../sorter.js"></script>
-        <script src="../../block-navigation.js"></script>
+        <script src="../../../sorter.js"></script>
+        <script src="../../../block-navigation.js"></script>
     </body>
 </html>
     

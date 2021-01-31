@@ -22,7 +22,6 @@ export default defineComponent({
       const { schema, rootSchema, value, errorSchema, uiSchema } = props
       const properties = schema.properties || {}
       const currentValue: any = isObject(value) ? value : {}
-      console.log(errorSchema, 'object的errorschema', properties)
       return Object.keys(properties).map((key: string, index: number) => {
         return (
           <SchemaItem

@@ -1,6 +1,6 @@
 import { defineComponent, PropType } from 'vue'
 import JsonSchema, { Schema } from '../../../lib'
-import ThemeProvider from '../../../lib/theme2'
+import ThemeProvider from '../../../lib/ThemeProvider'
 import ThemeDefault from '../../../lib/theme-default'
 
 const ThemeDefaultProvider = defineComponent({

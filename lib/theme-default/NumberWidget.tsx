@@ -8,7 +8,6 @@ const TextWidget: CommonWidgetDefine = withFormItem(
     props: commonThemeProps,
     setup(props) {
       const hanldeChange = (v: any) => {
-        console.log(v.target.value, 'v')
         const value = v.target.value
         v.target.value = props.value
         props.onChange(value)
