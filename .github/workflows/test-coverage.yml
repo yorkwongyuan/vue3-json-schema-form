@@ -18,6 +18,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
-      - run: npm run test:unit
+      - run: npm run test:unit:cov
         env:
           CI: true
+      - name: upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          flags: unittests
+          file: coverage/clover.yml
+          fail_ci_if_error: true
