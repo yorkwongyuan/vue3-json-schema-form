@@ -25,5 +25,5 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           flags: unittests
-          file: coverage/clover.yml
+          file: ./coverage/clover.yml
           fail_ci_if_error: true
